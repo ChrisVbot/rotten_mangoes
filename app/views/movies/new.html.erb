@@ -1,0 +1,29 @@
+<%= link_to "Back to all movies", movies_path %>
+
+<h2>Add a new movie</h2>
+<%= form_for @movie do |f| %>
+  <div class="form-field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-field">
+    <%= f.label :director %><br>
+    <%= f.text_field :director %>
+  </div>
+  <div class="form-field">
+    <%= f.label :runtime_in_minutes %><br>
+    <%= f.number_field :runtime_in_minutes %>
+  </div>
+  <div class="form-field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="form-field">
+    <%= f.label :release_date %><br>
+    <%= f.date_field :release_date %>
+  </div>
+  <div class="form-field">
+  <%= f.submit "Save" %>
+  </div>
+<% end %>  
+
