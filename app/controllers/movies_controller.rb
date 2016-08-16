@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movies.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   def new
@@ -13,13 +13,13 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movies.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to movies_path
+      redirect_to movies_path, notice: "#{@movie.title} was submitted succesfully!"
     else
       render :new
     end
