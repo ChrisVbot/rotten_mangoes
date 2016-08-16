@@ -1,0 +1,6 @@
+<h2>Users</h2>
+
+<ul>
+  <% @users.each do |user| %>
+  <table style="border: 1px solid black;"><tr><th>Email</th><th>First</th><th>Last</th></tr><tr><td><%= user.email %></td><td><%= user.firstname %></td><td><%= user.lastname %></td><td><% if user.admin %><strong>Admin</strong><% end %></td></tr></table>
+  <% end %>

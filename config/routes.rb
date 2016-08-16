@@ -16,4 +16,11 @@ Rails.application.routes.draw do
   root to: 'movies#index'
 
 
+ 
+
+  namespace :admin do
+    resources :users
+  end    
+
+
 end
