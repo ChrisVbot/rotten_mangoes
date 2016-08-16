@@ -7,11 +7,7 @@
   <p><%= movie.runtime_in_minutes %> minute runtime</p>
   <p><%= movie.description %></p>
   <p>Release date: <%= formatted_date(movie.release_date) %></p>
-  <% if movie.review_average %>
-  <p><%= movie.review_average %>/10 average rating</p>
-  <% else %>
-  <p>No reviews yet for this film</p>
-  <% end %>
+  <p>Average review: <%= movie.review_average %>/10</p>
 <% end %>
 
 
