@@ -1,0 +1,16 @@
+<h1>User details</h1>
+
+<p>Full name: <%= @user.full_name %></p>
+<p>ID: <%= @user.id %></p>
+<p>Email: <%= @user.email %></p>
+<p>Profile creation date: <%= @user.created_at %></p>
+<p>Profile last updated: <%= @user.updated_at %></p>
+<% if @user.admin %></p>
+  <p><strong>Admin</strong></p>
+<% end %>
+
+<%= link_to "Back to all users", admin_users_path %>
+
+
+
+
