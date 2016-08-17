@@ -3,6 +3,6 @@
 <%= paginate @users %>
 <ul>
   <% @users.each do |user| %>
-  <table style="border: 1px solid black; width: 35%; overflow-x:auto;"><tr><th>User ID</th><th>Email</th><th>First</th><th>Last</th></tr><tr><td><%= link_to user.id, admin_user_path(user)%></td><td><%= user.email %></td><td><%= user.firstname %></td><td><%= user.lastname %></td><td><% if user.admin %><strong>Admin</strong><% end %></td></tr></table>
+  <table style="border: 1px solid black; width: 50%; overflow-x:auto;"><tr><th>User ID</th><th>Email</th><th>First</th><th>Last</th></tr><tr><td><%= link_to user.id, admin_user_path(user)%></td><td><%= user.email %></td><td><%= user.firstname %></td><td><%= user.lastname %></td><td><% if user.admin %><strong>Admin</strong><% end %></td></tr></table>
   <% end %>
 
