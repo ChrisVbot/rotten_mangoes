@@ -8,7 +8,11 @@
 <p><%= image_tag(@movie.image.url.to_s) %>
 
 <hr>
-<h4>Average user rating: <%= @movie.review_average %>/10</h4>
+<% unless @movie.review_average.nil? %>
+  <h4>Average user rating: <%= @movie.review_average %>/10</h4>
+<% else %>
+  <h4>Not enough reviews for an average</h4>
+<% end %>
 <h3><em>Reviews of <%= @movie.title %></em></h3>
 <% if current_user %>
   <% @movie.reviews.each do |review| %>

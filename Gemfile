@@ -32,6 +32,8 @@ gem 'mini_magick'
 
 gem 'kaminari'
 
+gem 'pry'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

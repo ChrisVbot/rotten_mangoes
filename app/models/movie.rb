@@ -1,5 +1,11 @@
 class Movie < ApplicationRecord
   
+  SEARCH_OPTIONS = {
+    1 => 'Less than 90 minutes',
+    2 => 'Between 90 and 120 minutes',
+    3 => 'Over 120 minutes'
+  }
+
   has_many :reviews
   mount_uploader :image, ImageUploader
 
@@ -15,6 +21,7 @@ class Movie < ApplicationRecord
   def review_average
     reviews.sum(:rating_out_of_ten) / reviews.size unless reviews.empty?
   end 
+
 
   protected
 
