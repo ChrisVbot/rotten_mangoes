@@ -15,28 +15,10 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
-    @user = User.new
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path, notice: "User deleted"
   end
 
-  # def new
-  #   @user = User.new
-  # end
-
-  # def create
-  #   @user = User.new(user_params)
-  #   @user.admin = true
-  #   if @user.save
-  #     redirect_to movies_path, notice: "#{@user.email} has been added as an admin"
-  #   else
-  #     render :new
-  #   end
-  # end
-
-  # protected
-  # def admin_params
-  #   params.require(:user).permit(:email)
-  # end
-
 end
-
