@@ -11,6 +11,12 @@ class Admin::UsersController < ApplicationController
     @users = User.order("id").page(params[:page]).per(10)
   end
 
+  def new
+  end
+
+  def create
+  end
+
   def show
     @user = User.find(params[:id])
   end
@@ -22,3 +28,5 @@ class Admin::UsersController < ApplicationController
   end
 
 end
+
+#admins should never know users passwords - should not require it in the strong params! Need separate create field here! Create random pw which is sent to user - they log in and immediately change pw. 

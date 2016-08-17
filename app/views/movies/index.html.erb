@@ -1,4 +1,15 @@
 <h1>Rotten mangoes</h1>
+
+<%= form_tag(nil, method: "get", id: "search-form") do %>
+<%= text_field_tag :title, nil, placeholder: "Search by title" %><br>
+<%= text_field_tag :director, nil, placeholder: "Search directors" %><br>
+<%= select_tag :runtime_in_minutes, options_for_select(Movie::SEARCH_OPTIONS.invert) %> 
+<%= submit_tag "Search" %>
+<% end %>
+
+
+
+
 <%= link_to "Submit a new movie", new_movie_path %><br>
 <% @movies.each do |movie| %>
   <%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
@@ -13,5 +24,8 @@
     <p>Average review: <%= movie.review_average %>/10</p>
   <% end %>
 <% end %>
+
+<%= @search_capture %>
+
 
 
