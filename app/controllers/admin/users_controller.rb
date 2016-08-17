@@ -12,9 +12,18 @@ class Admin::UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def create
+    @user = User.new(user_params)
+    @user.password = (0..8).map {(65 + rand(26)).chr}.join #generates password for user
+    if @user.save
+      UserMailer.admin_welcome_email(@user).deliver_now
+      redirect_to admin_users_path, notice: "New user created with username #{@user.email}."
+    else
+      render :new
+    end
   end
 
   def show
@@ -26,6 +35,11 @@ class Admin::UsersController < ApplicationController
     UserMailer.delete_email(@user).deliver_now
     @user.destroy
     redirect_to admin_users_path, notice: "User deleted"
+  end
+
+  protected
+  def user_params
+    params.require(:user).permit(:email, :firstname, :lastname, :admin)
   end
 
 end

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to RottenMangoes.com, <%= @user.firstname %>!</h1>
+    <p>
+      You have been signed up by an admin. Your username is <%= @user.email %> and your password is: <%= @user.password %>. Please log in as soon as possible to change your password.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

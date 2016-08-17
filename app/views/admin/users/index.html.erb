@@ -1,5 +1,7 @@
 <h2>Users</h2>
 
+<%= link_to "Create a new user", new_admin_user_path %><br>
+
 <%= paginate @users %>
   <% @users.each do |user| %>
     <table style="border: 1px solid black; width: 50%; max-width: 50%; overflow-x:auto;">

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # binding.pry
     if @user.save
       UserMailer.welcome_email(@user).deliver_now
       session[:user_id] = @user.id #auto log in here
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :admin)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
 
 end
