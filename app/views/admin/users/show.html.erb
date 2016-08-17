@@ -1,5 +1,7 @@
 <h1>User details</h1>
 
+<%= link_to "Delete this user", admin_user_path(@user), method: :delete, data: {confirm: "You sure?"} %></h2>
+
 <p>Full name: <%= @user.full_name %></p>
 <p>ID: <%= @user.id %></p>
 <p>Email: <%= @user.email %></p>
