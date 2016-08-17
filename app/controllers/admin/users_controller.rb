@@ -23,6 +23,7 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    UserMailer.delete_email(@user).deliver_now
     @user.destroy
     redirect_to admin_users_path, notice: "User deleted"
   end
@@ -30,3 +31,4 @@ class Admin::UsersController < ApplicationController
 end
 
 #admins should never know users passwords - should not require it in the strong params! Need separate create field here! Create random pw which is sent to user - they log in and immediately change pw. 
+

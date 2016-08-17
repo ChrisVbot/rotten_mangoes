@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver_now
       session[:user_id] = @user.id #auto log in here
       redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
     else
