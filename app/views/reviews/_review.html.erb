@@ -1,0 +1,7 @@
+<% unless review.movie.nil? %>
+  <%= link_to movie_path(review.movie_id) do %>
+    <p><strong><%= review.movie.title %></strong></p>
+  <% end %>
+  <p>Review: <%= review.text %></p>
+  <p>Rating: <%= review.rating_out_of_ten %>/10</p>
+<% end %>
