@@ -1,0 +1,12 @@
+
+<%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
+<h2><%= link_to movie.title, movie_path(movie) %></h2>
+<p>Directed by: <%= movie.director %></p>
+<p><%= movie.runtime_in_minutes %> minute runtime</p>
+<p><%= movie.description %></p>
+<p>Release date: <%= formatted_date(movie.release_date) %></p>
+<% if movie.review_average.nil? %>
+  <p>Not enough reviews for average</p>
+<% else %>
+  <p>Average review: <%= movie.review_average %>/10</p>
+<% end %>
