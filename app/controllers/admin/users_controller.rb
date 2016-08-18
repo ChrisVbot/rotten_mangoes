@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   before_action do
-    if current_user.nil? || current_user.admin == false
+    unless current_user.admin?
       flash[:notice] = "Access denied - only admins allowed!"
       redirect_to '/'
     end
