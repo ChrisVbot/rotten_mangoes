@@ -12,7 +12,13 @@ Rails.application.routes.draw do
   end
   
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  
+  resource :session, only: [:new, :create, :destroy]
+  get 'logout', to: "sessions#destroy", as: :logout
+  get 'login', to: "sessions#create", as: :login
+
+
+  
   root to: 'movies#index'
 
 
