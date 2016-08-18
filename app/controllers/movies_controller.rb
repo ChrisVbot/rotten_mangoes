@@ -3,8 +3,7 @@ class MoviesController < ApplicationController
   
   def index
     @movies = Movie.all
-    @movies = @movies.title_query(params[:title]) if params[:title].present?
-    @movies = @movies.director_query(params[:director]) if params[:director].present?
+    @movies = @movies.title_director_query(params[:search]) if params[:search].present?
     @movies = @movies.runtime_query1(params[:runtime_in_minutes]) if params[:runtime_in_minutes] == "1"
     @movies = @movies.runtime_query2(params[:runtime_in_minutes]) if params[:runtime_in_minutes] == "2"
     @movies = @movies.runtime_query3(params[:runtime_in_minutes]) if params[:runtime_in_minutes] == "3"

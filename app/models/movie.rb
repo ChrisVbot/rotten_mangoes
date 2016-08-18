@@ -1,20 +1,19 @@
 class Movie < ApplicationRecord
   
   SEARCH_OPTIONS = {
-    0 => 'Select runtime',
+    0 => 'Search all movies by runtime',
     1 => 'Less than 90 minutes',
     2 => 'Between 90 and 120 minutes',
     3 => 'Over 120 minutes'
   }
 
-  scope :title_query, -> (title) {where("title LIKE?", "%#{title}%")}
-  scope :director_query, -> (director) {where("director LIKE?", "%#{director}%")}
-  #checks for runtimes under 90 minutes
+  scope :title_director_query, -> (search) {where("title LIKE ? OR director LIKE ?", "%#{search}%", "%#{search}%")}
   scope :runtime_query1, -> (runtime) {where("runtime_in_minutes < ?", 90)}
   #checks for runtimes between 90 and 120 minutes
   scope :runtime_query2, -> (runtime) {where("runtime_in_minutes > ? AND runtime_in_minutes < ?", 90, 120)}
   #checks for runtimes over 120 minutes
   scope :runtime_query3, -> (runtime) {where("runtime_in_minutes > ?", 120)}
+
 
   has_many :reviews
   mount_uploader :image, ImageUploader
