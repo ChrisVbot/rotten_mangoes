@@ -34,6 +34,8 @@ gem 'kaminari'
 
 gem 'pry'
 
+gem 'wikipedia-client'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

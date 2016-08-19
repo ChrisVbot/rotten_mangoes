@@ -1,3 +1,14 @@
 #search-form{
   width: 250px;
 }
+
+
+.card.large .card-content {
+  height: auto;
+  overflow-y:scroll;
+}
+
+.card{
+  width: auto;
+  overflow-x:scroll;
+}

@@ -1,7 +1,17 @@
 <% unless review.movie.nil? %>
-  <%= link_to movie_path(review.movie_id) do %>
-    <p><strong><%= review.movie.title %></strong></p>
+   <div class="col m4 small"> 
+    <div class="card hoverable">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= review.text %></p>
+          <p><%= review.rating_out_of_ten %>/10</p>
+          <small>Posted by: </small>
+            <%= link_to user_path(review.user) do %> 
+            <small><%= review.user.full_name %></small>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
-  <p>Review: <%= review.text %></p>
-  <p>Rating: <%= review.rating_out_of_ten %>/10</p>
-<% end %>
+

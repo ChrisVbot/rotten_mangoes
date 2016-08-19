@@ -1,0 +1,30 @@
+<div class="col m12">
+  <div class="card horizontal hoverable large">
+    <div class="card-image">
+      <%= image_tag(movie.image.url.to_s) %>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <h5 class="header"><%=movie.title %></h5>
+          (<%= link_to "edit", edit_movie_path(movie) %>, <%= link_to "delete", movie_path(movie), method: :delete, data: {confirm: "Are you sure? This cannot be undone."} %>)
+        <p>Directed by: <%= movie.director %></p>
+        <p>Runtime: <%= movie.runtime_in_minutes %> minute runtime</p>
+        <% wiki = Wikipedia.find(@movie.title) %>        
+        <% unless wiki.summary.nil? %>
+          <flowtext>
+            <p><%= wiki.summary %><br>
+          </flowtext>
+          <small>Source: <a href="<%= wiki.fullurl %>">Wikipedia</a></small></p>
+        <% else %>
+          <flowtext>
+            <p><%= movie.description %></p>
+          </flowtext>
+        <% end %>
+      <% unless movie.review_average.nil? %>
+        <h4>Average user rating: <%= movie.review_average %>/10</h4>
+      <% else %>
+      <h4>Not enough reviews for an average. <%= link_to "Add one?", new_movie_review_path(movie) %></h4>
+      <% end %>
+    </div>
+  </div>
+</div>

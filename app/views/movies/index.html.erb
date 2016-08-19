@@ -1,23 +1,34 @@
 
 
+
 <div class="row">
-  <div class="col s4"><h1>Rotten mangoes</h1></div>
-  <div class="col s4">
+  <div class="col s12 center">
+    <h1>Rotten mangoes</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s6 left">
     <%= form_tag(nil, method: "get", id: "search-form", role: 'search') do %>
-    <%= search_field_tag :search, nil, placeholder: "Search by title or director" %>
-    <%= submit_tag "Search" %>
+      <%= search_field_tag :search, nil, placeholder: "Search by title or director" %>
+      <%= submit_tag "Search" %>
     <% end %>
     <%= form_tag(nil, method: "get", id: "search-form") do %>
-    <%= select_tag :runtime_in_minutes, options_for_select(Movie::SEARCH_OPTIONS.invert) %> 
-    <%= submit_tag "Search" %>
+      <%= select_tag :runtime_in_minutes, options_for_select(Movie::SEARCH_OPTIONS.invert) %> 
+      <%= submit_tag "Search" %>
     <% end %>
-    </div>
-  <div class="col s4"><%= link_to "Submit a new movie", new_movie_path %></div>
+  </div>
+  <div class="col s6 right">
+    <%= link_to "Submit a new movie", new_movie_path %>
+  </div>
 </div>
 
-</div>
 
+<div class="row">
   <%= render @movies %>
+
+</div>
+
 
 
 

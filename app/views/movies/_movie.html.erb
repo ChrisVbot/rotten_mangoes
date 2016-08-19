@@ -1,10 +1,8 @@
-
-<div class="row">
-  <div class="col m6">
-    <div class="card horizontal hoverable small">
-      <div class="card-image">
-        <%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
-      </div>
+<div class="col m6">
+  <div class="card horizontal hoverable small">
+    <div class="card-image">
+      <%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
+    </div>
     <div class="card-stacked">
       <div class="card-content"> 
         <h5 class="header"><%= movie.title %></h5>     
@@ -18,7 +16,6 @@
         <% else %>
           <p>Review average: <%= movie.review_average %>/10</p>
         <% end %>
-
         <%= link_to movie_path(movie) do %>
           <p>Click for more</p>
         <% end %>
@@ -26,3 +23,5 @@
     </div>
   </div>
 </div>
+
+
