@@ -3,21 +3,31 @@
 <%= link_to "Create a new user", new_admin_user_path %><br>
 
 <%= paginate @users %>
+<div class="container">
   <% @users.each do |user| %>
-    <table style="border: 1px solid black; width: 50%; max-width: 50%; overflow-x:auto;">
-      <tr>
-        <th>User ID</th>
-        <th>Email</th>
-        <th>First</th>
-        <th>Last</th>
-      </tr>
-      <tr>
-        <td><%= link_to user.id, admin_user_path(user)%></td>
-        <td><%= user.email %></td>
-        <td><%= user.firstname %></td>
-        <td><%= user.lastname %></td>
-        <td><% if user.admin %><strong>Admin</strong><% end %></td>
-      </tr>
+    <table class="striped">
+      <col align="left">
+      <col align="left">
+      <col align="right">
+      <thead>
+        <tr>
+          <th data-field="id">User ID</th>
+          <th data-field="email">Email</th>
+          <th data-field="first">First</th>
+          <th data-field="last">Last</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= link_to user.id, admin_user_path(user)%></td>
+          <td><%= user.email %></td>
+          <td><%= user.firstname %></td>
+          <td><%= user.lastname %></td>
+          <td><% if user.admin %><strong>Admin</strong><% end %></td>
+        </tr>
+      </tbody>
     </table>
   <% end %>
+</div>
+
 

@@ -4,12 +4,28 @@
     <title>RottenMangoes</title>
     <%= csrf_meta_tags %>
 
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+  
   </head>
 
-  <body>
+  <body class="#fffde7 yellow lighten-5">
+    <nav>
+    <div class="nav-wrapper #ffa726 orange lighten-1">
+      <a href="/" class="brand-logo">Rotten Mangoes</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">User profile</a></li>
+      </ul>
+    </div>
+  </nav>
+        
+  <script type="text/javascript" src="js/materialize.min.js"></script>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value) %>
     <% end %>

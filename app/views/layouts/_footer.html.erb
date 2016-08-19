@@ -1,13 +1,28 @@
-<footer>
-  <small>
-    <% if current_user %>
-      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", logout_path %>)<br>
-      <% if current_user.admin %>
-      Signed in as admin. <%= link_to "View all users", admin_users_path %>. <%= link_to "Create user", new_admin_user_path %>
+<footer class="page-footer #ffa726 orange lighten-1">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Rotten Mangoes</h5>
+        <p class="grey-text text-lighten-4">The best place for reviews</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <% if current_user %>
+        <ul>
+          <li class="grey-text text-lighten-4">Signed in as <%= current_user.full_name %>(<%= link_to "Log out", logout_path, {class: "blue-text text-darken-2"} %>)</li>
+          <% if current_user.admin %>
+            <li class="grey-text text-lighten-4">Signed in as admin.</li>
+            <li class="grey-text text-lighten-4">(<%= link_to "View all users", admin_users_path, {class:"blue-text text-darken-2"} %> or <%= link_to "create new user", new_admin_user_path, {class:"blue-text text-darken-2"} %>)</li>
       <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
     <% else %>
-      <%= link_to "Log in", login_path %> | <%= link_to "Sign up", new_user_path %>
+      <ul>
+        <li><%= link_to "Log in", login_path, {class:"blue-text text-darken-2"} %></li>
+        <li><%= link_to "Sign up", new_user_path, {class:"blue-text text-darken-2"} %></li>
+      </ul>
     <% end %>  
-  </small>
-</footer>
+  </div>
 
+</footer>

@@ -1,12 +1,28 @@
 
-<%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
-<h2><%= link_to movie.title, movie_path(movie) %></h2>
-<p>Directed by: <%= movie.director %></p>
-<p><%= movie.runtime_in_minutes %> minute runtime</p>
-<p><%= movie.description %></p>
-<p>Release date: <%= formatted_date(movie.release_date) %></p>
-<% if movie.review_average.nil? %>
-  <p>Not enough reviews for average</p>
-<% else %>
-  <p>Average review: <%= movie.review_average %>/10</p>
-<% end %>
+<div class="row">
+  <div class="col m6">
+    <div class="card horizontal hoverable small">
+      <div class="card-image">
+        <%= link_to image_tag(movie.image.thumb.url.to_s), movie_path(movie) %>
+      </div>
+    <div class="card-stacked">
+      <div class="card-content"> 
+        <h5 class="header"><%= movie.title %></h5>     
+        <blockquote>
+          <p><%= movie.description %></p>
+        </blockquote>
+        <p>Release date: <%= formatted_date(movie.release_date) %></p>
+        <p>Runtime: <%= movie.runtime_in_minutes %> minutes</p>
+        <% if movie.review_average.nil? %>
+          <p>Not enough reviews for average</p>
+        <% else %>
+          <p>Review average: <%= movie.review_average %>/10</p>
+        <% end %>
+
+        <%= link_to movie_path(movie) do %>
+          <p>Click for more</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
