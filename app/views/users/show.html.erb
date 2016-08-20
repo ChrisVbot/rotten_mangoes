@@ -1,12 +1,9 @@
 <%= link_to "Back to main page", movies_path %>
 
 <%= render @user %>
-<%= render @user.reviews %>
 
+<div class="row">
+<%= render 'user_reviews', user: @user %>
+</div>
 
-
-
-  <%= link_to movie_path(review.movie_id) do %>
-    <p><strong><%= review.movie.title %></strong></p>
-  <% end %>
 

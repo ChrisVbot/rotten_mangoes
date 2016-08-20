@@ -8,7 +8,9 @@
   overflow-y:scroll;
 }
 
-.card{
+#movie-page-review{
   width: auto;
+  height: 110px;
   overflow-x:scroll;
+  overflow-y:scroll;
 }

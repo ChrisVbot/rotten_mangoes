@@ -10,6 +10,7 @@
           <p><%= movie.description %></p>
         </blockquote>
         <p>Release date: <%= formatted_date(movie.release_date) %></p>
+        <p>Director: <%= movie.director %></p>
         <p>Runtime: <%= movie.runtime_in_minutes %> minutes</p>
         <% if movie.review_average.nil? %>
           <p>Not enough reviews for average</p>

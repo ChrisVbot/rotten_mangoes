@@ -7,19 +7,17 @@
 <%= render 'summary', movie: @movie %>
 </div>
 
-
-<div class="container">
+<div class="container center">
   <% unless @movie.review_average.nil? %>
     <h3><em>Reviews of <%= @movie.title %></em></h3>
   <% end %>
 </div>
 
 <% if current_user %>
-<div class="row">
-  <%= render @movie.reviews %>
-</div>
-
-<p><%= link_to "Write a review", new_movie_review_path(@movie) %></p>
+  <div class="row">
+    <%= render @movie.reviews %>
+  </div>
+  <p><%= link_to "Write a review", new_movie_review_path(@movie) %></p>
 <% else %>
-  <p>Please <%= link_to "log in", new_session_path %> to see reviews and add your own.</p>
+  <p>Please <%= link_to "log in", login_path %> to see reviews and add your own.</p>
 <% end %>

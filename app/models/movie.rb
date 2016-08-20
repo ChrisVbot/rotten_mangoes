@@ -15,7 +15,7 @@ class Movie < ApplicationRecord
   scope :runtime_query3, -> (runtime) {where("runtime_in_minutes > ?", 120)}
 
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   mount_uploader :image, ImageUploader
 
 

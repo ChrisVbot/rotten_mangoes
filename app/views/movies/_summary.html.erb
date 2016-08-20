@@ -8,7 +8,7 @@
         <h5 class="header"><%=movie.title %></h5>
           (<%= link_to "edit", edit_movie_path(movie) %>, <%= link_to "delete", movie_path(movie), method: :delete, data: {confirm: "Are you sure? This cannot be undone."} %>)
         <p>Directed by: <%= movie.director %></p>
-        <p>Runtime: <%= movie.runtime_in_minutes %> minute runtime</p>
+        <p>Runtime: <%= movie.runtime_in_minutes %> minutes</p>
         <% wiki = Wikipedia.find(@movie.title) %>        
         <% unless wiki.summary.nil? %>
           <flowtext>

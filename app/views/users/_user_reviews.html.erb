@@ -1,0 +1,17 @@
+<% @user.reviews.each do |review| %>
+  <% unless review.movie_id.nil? %>
+   <div class="col m2 small"> 
+    <div class="card hoverable">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><%= review.text %></p>
+          <p><%= review.rating_out_of_ten %>/10</p>
+            <%= link_to movie_path(review.movie_id) do %> 
+            <small><%= (Movie.find(review.movie_id)).title %></small>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+<% end %>
