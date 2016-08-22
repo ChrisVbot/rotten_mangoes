@@ -1,27 +1,31 @@
+  <div class="center">
+   <img src="/images/film_camera1.png"> 
+  </div>
 
-
-
-<div class="row">
-  <div class="col s12 center">
-    <h1>Rotten mangoes</h1>
+<div class="container center">
+  <div class="row">
+    <div class="col s4 left">
+      <%= form_tag(nil, method: "get", id: "search-form", role: 'search') do %>
+        <%= search_field_tag :search, nil, placeholder: "Search by title or director" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+    <div class="col s4 center">
+      <h4 class="grey-text">OR</h4>
+    </div>
+    <div class="col s4 right">
+      <%= form_tag(nil, method: "get", id: "search-form") do %>
+        <%= select_tag :runtime_in_minutes, options_for_select(Movie::SEARCH_OPTIONS.invert) %> 
+        <%= submit_tag "Search" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col s6 left">
-    <%= form_tag(nil, method: "get", id: "search-form", role: 'search') do %>
-      <%= search_field_tag :search, nil, placeholder: "Search by title or director" %>
-      <%= submit_tag "Search" %>
-    <% end %>
-    <%= form_tag(nil, method: "get", id: "search-form") do %>
-      <%= select_tag :runtime_in_minutes, options_for_select(Movie::SEARCH_OPTIONS.invert) %> 
-      <%= submit_tag "Search" %>
-    <% end %>
-  </div>
-  <div class="col s6 right">
-    <%= link_to "Submit a new movie", new_movie_path %>
-  </div>
+<div class="col s6 center">
+  <%= link_to "Submit a new movie", new_movie_path %>
 </div>
+
 
 
 <div class="row">
